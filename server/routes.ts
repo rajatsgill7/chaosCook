@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config(); // Load environment variables
+
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
@@ -10,6 +13,7 @@ if (!process.env.OPENAI_API_KEY) {
 }
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+
 
 // the newest OpenAI model is "gpt-4o" which was released May 13, 2024
 async function generateRecipe(ingredients: string[]) {
